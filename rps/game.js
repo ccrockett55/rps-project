@@ -8,27 +8,35 @@ class Game{
     incrementPlayerWins(){
         //*********************************ADD CODE HERE *************************************/
         // Add 1 to the countOfPlayerWins property
+        this.countOfPlayerWins++;
     }
 
     incrementComputerWins(){
         //*********************************ADD CODE HERE *************************************/
         // Add 1 to the countOfComputerWins property
+        this.countOfComputerWins++;
     }
 
     incrementCountOfTies(){
         //*********************************ADD CODE HERE *************************************/
         // Add 1 to the countOfTies property
+        this.countOfTies++
     }
 
 
     setNumberOfRounds(numberOfRounds){
         //*********************************ADD CODE HERE *************************************/
         // Set the numberOfRounds property to the parameter
+        this.numberOfRounds = numberOfRounds;
     }
 
     newGame(){
         //*********************************ADD CODE HERE *************************************/
         // Clear all properties to their default values
+        this.numberOfRounds = null;
+        this.countOfPlayerWins = 0;
+        this.countOfComputerWins = 0;
+        this.countOfTies = 0;
     }
 
      /**
@@ -38,6 +46,11 @@ class Game{
      isNumberOfRoundsValid(num) {
         //*********************************ADD CODE HERE *************************************/
         // return a boolean value that shows if the parameter is a valid user input (A number from 1 - 5)
+        if(num <= 0 || num > 5 || isNaN(num) || num == undefined || parseInt(num, 10) == false) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
 

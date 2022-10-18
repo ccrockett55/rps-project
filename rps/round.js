@@ -29,6 +29,24 @@ class Round{
     getComputerSelection() {
         //*********************************ADD CODE HERE *************************************/
         // Use Math.floor and select a random Selections enumerator from above 
+        let computer = Math.floor(Math.random() * 4);
+        
+        switch (computer) {
+            case 1: 
+                this.computerSelection = 'rock';
+                break;
+            case 2:
+                this.computerSelection = 'paper';
+                break;
+            case 3:
+                this.computerSelection = 'scissors';
+                break;
+            default:
+                this.computerSelection = 'rock';
+                break;
+        }
+        console.log(`COMPUTER: ${this.computerSelection}`);
+        return this.computerSelection.toLowerCase();
     }
 
     /**
@@ -37,9 +55,31 @@ class Round{
      * @param {*} computerSelection
      * @returns Outcomes
      */
-    determineWinner() {
+    determineWinner(playerSelection, computerSelection) {
         //*********************************ADD CODE HERE *************************************/
         // Use this.playerSelection and this.computerSelection to return the appropriate outcome from the Outcomes enumerator above.
+        playerSelection = this.playerSelection;
+        computerSelection = this.computerSelection;
+
+        if (playerSelection === Selections.ROCK && computerSelection === Selections.ROCK) {
+            return Outcomes.TIE;       
+        } else if (playerSelection === Selections.ROCK && computerSelection === Selections.PAPER) {
+            return Outcomes.COMPUTER_WINS;
+        } else if (playerSelection === Selections.ROCK && computerSelection === Selections.SCISSORS) {
+            return Outcomes.PLAYER_WINS;
+        } else if (playerSelection === Selections.PAPER && computerSelection === Selections.ROCK) {
+            return Outcomes.PLAYER_WINS;
+        } else if (playerSelection === Selections.PAPER && computerSelection === Selections.PAPER) {
+            return Outcomes.TIE;
+        } else if (playerSelection === Selections.PAPER && computerSelection === Selections.SCISSORS) {
+            return Outcomes.COMPUTER_WINS;
+        } else if (playerSelection === Selections.SCISSORS && computerSelection === Selections.ROCK) {
+            return Outcomes.COMPUTER_WINS;
+        } else if (playerSelection === Selections.SCISSORS && computerSelection === Selections.PAPER) {
+            return Outcomes.PLAYER_WINS;
+        } else if (playerSelection === Selections.SCISSORS && computerSelection === Selections.SCISSORS) {
+            return Outcomes.TIE;
+        }
     }
 
 
